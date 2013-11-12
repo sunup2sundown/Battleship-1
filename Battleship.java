@@ -3,32 +3,23 @@
  * Tim Robertson
  **/
 
-public class Board {
-	private enum Cell {EMPTY, OCCUPIED, HIT, MISS}
-	private Cell[][] board;
-	public Board() {
-		board = new Cell[10][10];
-		for(int i = 0; i < board.length; i++) {
-			for(int j = 0; j < board[i].length; j++) {
-				board[i][j] = Cell.EMPTY;
-			}
-		}
+public class Battleship {
+	public static void main(String[] args) {
+		Board b = new Board();
+		b.print();
+		System.out.println();
+		b.makeAttack(1, 1);
+		b.print();
+		System.out.println();
+		b.placePiece(4, 5, 5, true);
+		b.print();
+		System.out.println();
+		b.makeAttack(5, 5);
+		b.print();
+		System.out.println();
+		b.placePiece(1, 1, 4, false);
+		b.print();
+		System.out.println();
 	}
-	public char getCell(int x, int y) {
-		switch(board[y][x]) {
-			case EMPTY:
-				return '_';
-				break;
-			case OCCUPIED:
-				return '#';
-				break;
-			case HIT:
-				return 'X';
-				break;
-			case MISS:
-				return '/';
-			default:
-				return '?';
-		}
-	}
+
 }
